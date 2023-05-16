@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/option_search"
+        android:icon="@drawable/ico_search"
+        android:title="Búsqueda"
+        app:showAsAction="ifRoom" />
+
+
+
+    <item
+        android:id="@+id/action_more"
+        android:icon="@drawable/ico_more_vert_white"
+        android:orderInCategory="1"
+        app:showAsAction="always"
+        android:title="More">
+        <menu>
+            <item
+                android:id="@+id/option_cabina"
+                android:icon="@drawable/ico_phone"
+                android:title="Cabina"/>
+            <item
+                android:id="@+id/option_googlemaps"
+                android:icon="@drawable/ic_gas_station"
+                android:title="Gasolinerias"/>
+        </menu>
+    </item>
+
+
+
+</menu>

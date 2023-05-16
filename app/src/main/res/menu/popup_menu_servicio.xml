@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_popup_fotos"
+        android:icon="@drawable/baseline_photo_camera_24"
+        android:title="Cargar fotos" />
+    <item
+        android:id="@+id/action_popup_ubicacion"
+        android:icon="@drawable/baseline_location_on_24"
+        android:title="Ubicación" />
+</menu>

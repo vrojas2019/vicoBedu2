@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingVertical="16dp">
+
+<ImageView
+    android:id="@+id/imgvetapa1"
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginStart="8dp"
+    android:src="@drawable/baseline_pending_actions_24"
+    android:tooltipText="Primer contacto"
+
+    />
+
+   <ImageView
+       android:id="@+id/imgvetapa2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+       android:layout_marginStart="8dp"
+        android:src="@drawable/baseline_car_repair_24"
+       android:tooltipText="Terminar servicio"
+        />
+
+ <ImageView
+     android:id="@+id/imgvetapa3"
+     android:layout_width="32dp"
+     android:layout_height="32dp"
+     app:layout_constraintLeft_toLeftOf="parent"
+     app:layout_constraintTop_toTopOf="parent"
+     android:layout_marginStart="8dp"
+     android:src="@drawable/ic_check_circle"
+     android:tooltipText="Terminar servicio"
+     />
+
+    <TextView
+        android:id="@+id/lblAsegurado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Victor Rojas"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/guideline2"
+        android:layout_marginStart="8dp"
+        />
+
+    <TextView
+        android:id="@+id/lblVehiculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Kia Sorento 2015"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/guideline2"
+        android:layout_marginStart="8dp"
+        />
+
+    <TextView
+        android:id="@+id/lblFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="10/05/2023 14:25"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="@+id/guideline3" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <TextView
+        android:id="@+id/lblFolio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="45678"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="@+id/guideline3" />
+
+    <ImageButton
+        android:id="@+id/imgbMenuPopup"
+        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_alignParentTop="true"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_more_vert_black"
+        android:backgroundTint="#00000000"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
