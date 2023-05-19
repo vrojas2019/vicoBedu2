@@ -14,18 +14,20 @@
         android:src="@drawable/img_logo" />
 
     <TextView
+        android:id="@+id/txtName_header"
         android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Victor Rojas"
+        android:text="Full name"
         android:textSize="24sp"
         android:textColor="@color/white"
         />
 
     <TextView
+        android:id="@+id/txtMail_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="vrojas@hotamil.com"
+        android:text="correo@hotmail.com"
         android:textSize="12sp"
         android:textColor="@color/white"
         />

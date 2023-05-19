@@ -1,6 +1,7 @@
 package org.bedu.gr
 
 import android.Manifest.permission.CALL_PHONE
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
@@ -9,6 +10,9 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -16,12 +20,17 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+
+import androidx.navigation.ui.navigateUp
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import org.bedu.gr.Fragments.HistorialFragment
 import org.bedu.gr.Fragments.ServiciosFragment
 import org.bedu.gr.UI.ID_USER
 import org.bedu.gr.UI.LoginActivity
+import org.bedu.gr.UI.MAIL
 import org.bedu.gr.UI.USER_NAME
 import org.bedu.gr.databinding.ActivityMainBinding
 
@@ -30,7 +39,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     //Variables globales
     private lateinit var binding: ActivityMainBinding
-
 
     private lateinit var drawerLayout : DrawerLayout
     private lateinit var drawerToggle : ActionBarDrawerToggle
@@ -42,33 +50,44 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //ButtonNavigationView
 private lateinit var bottomNavigationView : BottomNavigationView
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val bundle = intent.extras
-        val idUser = bundle?.getString(ID_USER)
-        val userName = bundle?.getString(USER_NAME)
-        //text = findViewById(R.id.lblUserName)
-        //text.text = "Bienvenido ${userName}"
-
        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setCurrentFragment(serviciosFragment)
-        createFragments()
+        val sharedPreferences = getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE)
+      /*  val bundle = intent.extras
+        val idUser = bundle?.getString(ID_USER)
+        val userName = bundle?.getString(USER_NAME)
+        val mail = bundle?.getString(MAIL)*/
+
+        val idUser = sharedPreferences.getString("idUser","").toString()
+        val userName = sharedPreferences.getString("name","").toString()
+        val mail = sharedPreferences.getString("user","").toString()
+
+
+        val navigationView : NavigationView  = findViewById(R.id.nav_view)
+        val headerView : View = navigationView.getHeaderView(0)
+        val txtName : TextView = headerView.findViewById(R.id.txtName_header)
+        val txtMail : TextView = headerView.findViewById(R.id.txtMail_header)
+
+        txtName.text = userName.toString()
+        txtMail.text = mail.toString()
 
         //Toolbar
         val toolbarMain = findViewById<Toolbar>(R.id.toolbar_main)
         this.setSupportActionBar(toolbarMain)
-
         setupDrawer(toolbarMain)
 
-
-
+        setCurrentFragment(serviciosFragment)
+        createFragments()
 
     }
-
     private fun createFragments() {
         bottomNavigationView = findViewById<BottomNavigationView>(R.id.btnNavigationView)
         bottomNavigationView.setOnItemSelectedListener {
@@ -79,22 +98,13 @@ private lateinit var bottomNavigationView : BottomNavigationView
                     true
                 }
                 R.id.nav_historial->{
-
-                    //                    val args = Bundle()
-//                    val shared: SharedPreferences = getSharedPreferences("shared", MODE_PRIVATE)
-//                    args.putInt("idConductor", shared.getInt("idConductor",0))
-//                    args.putString("token", shared.getString("token","0"))
-//                    tercerFragment.arguments=args
-//                    setCurrentFragment(tercerFragment)
-//
-
-
                     setCurrentFragment(historialFragment)
                     it.actionView?.clearFocus()
                     true
                 }
 
                 R.id.nav_notificaciones->{
+                    Toast.makeText(applicationContext, "En breve, esta funcionalidad estará habilitada", Toast.LENGTH_LONG).show()
                     it.actionView?.clearFocus()
                     true
                 }
@@ -110,7 +120,7 @@ private lateinit var bottomNavigationView : BottomNavigationView
 
     private fun setCurrentFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.containerView,fragment)
+            replace(R.id.nav_host_fragment,fragment)
             commit()
         }
     }
@@ -125,20 +135,24 @@ private lateinit var bottomNavigationView : BottomNavigationView
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
         supportActionBar?.setHomeButtonEnabled(true);
         navigationView.setNavigationItemSelectedListener (this)
-
-
-
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.drawer_settings->{
-                setCurrentFragment(serviciosFragment)
+                //setCurrentFragment(settingsFragment)
+                Toast.makeText(applicationContext, "En breve, esta funcionalidad estará habilitada", Toast.LENGTH_LONG).show()
                 item.actionView?.clearFocus()
                 true
             }
             R.id.drawer_salir->{
                 item.actionView?.clearFocus()
+                val sharedPreferences = getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE)
+                with(sharedPreferences.edit()){
+                    putString("active","false")
+                    apply()
+                }
+
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
 
@@ -169,6 +183,7 @@ private lateinit var bottomNavigationView : BottomNavigationView
 
         when(item.itemId){
             R.id.option_search->{
+                Toast.makeText(applicationContext, "En breve, esta funcionalidad estará habilitada", Toast.LENGTH_LONG).show()
                 item.actionView?.clearFocus()
                 true
             }

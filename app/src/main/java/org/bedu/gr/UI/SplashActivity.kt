@@ -21,16 +21,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            /*val transitionDrawable = TransitionDrawable(
-                arrayOf(resources.getDrawable(R.drawable.splash), resources.getDrawable(
-                    R.drawable.logosplash
-                ))
-            )
-            transitionDrawable.isCrossFadeEnabled = true
-            imageView.setImageDrawable(transitionDrawable)
-            transitionDrawable.startTransition(500)*/
-
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         },2000)

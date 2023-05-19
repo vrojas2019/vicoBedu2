@@ -11,11 +11,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import org.bedu.gr.DetailActivity
+import org.bedu.gr.Fragments.DetailFragment
 import org.bedu.gr.Models.Servicio
 import org.bedu.gr.R
+import org.bedu.gr.UI.LoginActivity
 
 
 class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val tipo:Int) : RecyclerView.Adapter<RecyclerAdapterServicio.ViewHolder>() {
@@ -33,6 +37,24 @@ class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val servicio = servicios[position]
         holder.bind(servicio)
+
+        holder.itemView.setOnClickListener(View.OnClickListener {
+
+            //Toast.makeText(c, servicio.folio_servicio.toString(), Toast.LENGTH_SHORT).show()
+
+            /*val activity = c as AppCompatActivity
+            val fragment = DetailFragment()
+            c.supportFragmentManager.beginTransaction().apply {
+                replace(R.id.nav_host_fragment,fragment)
+                commit()
+            }*/
+
+
+            val intent = Intent(c, DetailActivity::class.java)
+            intent.putExtra("folio",servicio.folio_servicio.toString())
+            c.startActivity(intent)
+
+        })
 
 
     }
@@ -53,12 +75,12 @@ class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val 
         private val fecha = view.findViewById<TextView>(R.id.lblFecha)
         private var etapa: Int = 0
         private var coordenadas: String = ""
-        lateinit var mMenus : ImageButton
+        lateinit var optionsMenu : ImageButton
 
         init {
             if (tipo ==1){
-                mMenus = view.findViewById(R.id.imgbMenuPopup)
-                mMenus.setOnClickListener { popupMenus(it) }
+                optionsMenu = view.findViewById(R.id.imgbMenuPopup)
+                optionsMenu.setOnClickListener { popupMenus(it) }
             }
 
         }
@@ -135,7 +157,7 @@ class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val 
                 }
             }
 
-            itemView.setOnClickListener(View.OnClickListener { Toast.makeText(c, servicio.folio_servicio.toString(), Toast.LENGTH_SHORT).show() })
+
 
         }
 

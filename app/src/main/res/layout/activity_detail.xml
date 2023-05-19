@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:padding="12dp"
+    android:orientation="vertical"
+    android:background="@color/gray2"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DETALLE DE SERVICIO"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Folio de servicio"
+        android:textSize="8sp"
+        />
+
+    <TextView
+        android:id="@+id/txtFolioServicioDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Folio de servicio"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha Solicitud"
+        android:textSize="8sp"
+        />
+
+    <TextView
+        android:id="@+id/txtFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asegurado"
+        android:textSize="8sp"
+        />
+
+    <TextView
+        android:id="@+id/txtAseguradoDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asegurado"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        />
+    <View style="@style/Divider"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DATOS DE VEHÍCULO"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="8dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vehículo"
+        android:textSize="8sp"
+        />
+
+    <TextView
+        android:id="@+id/txtVehiculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Datos"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        />
+
+    <View style="@style/Divider"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UBICACIÓN"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="8dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Origen"
+        android:textSize="8sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blvd. Bernardo Quintana Arrioja 37, Loma Dorada, 76060 Santiago de Querétaro, Qro., Mexico"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Destino"
+        android:textSize="8sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C. Cedro 114, Colonia, Praderas del Sol, 76804 San Juan del Río, Qro., Mexico"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        />
+
+
+
+</LinearLayout >
