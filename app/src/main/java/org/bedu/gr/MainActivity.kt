@@ -20,18 +20,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-
-import androidx.navigation.ui.navigateUp
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import org.bedu.gr.Fragments.HistorialFragment
 import org.bedu.gr.Fragments.ServiciosFragment
-import org.bedu.gr.UI.ID_USER
 import org.bedu.gr.UI.LoginActivity
-import org.bedu.gr.UI.MAIL
-import org.bedu.gr.UI.USER_NAME
 import org.bedu.gr.databinding.ActivityMainBinding
 
 
@@ -49,9 +42,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 //ButtonNavigationView
 private lateinit var bottomNavigationView : BottomNavigationView
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -134,6 +124,7 @@ private lateinit var bottomNavigationView : BottomNavigationView
         drawerToggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
         supportActionBar?.setHomeButtonEnabled(true);
+        supportActionBar!!.title=""
         navigationView.setNavigationItemSelectedListener (this)
     }
 

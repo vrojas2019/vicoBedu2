@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Folio de servicio"
-        android:textSize="8sp"
+        android:textSize="10sp"
         />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Folio de servicio"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:layout_marginBottom="8dp"
         />
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fecha Solicitud"
-        android:textSize="8sp"
+        android:textSize="10sp"
         />
 
     <TextView
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fecha"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:layout_marginBottom="8dp"
         />
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Asegurado"
-        android:textSize="8sp"
+        android:textSize="10sp"
         />
 
     <TextView
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Asegurado"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:layout_marginBottom="8dp"
         />
@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vehículo"
-        android:textSize="8sp"
+        android:textSize="10sp"
         />
 
     <TextView
@@ -93,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Datos"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:layout_marginBottom="8dp"
         />
@@ -113,14 +113,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Origen"
-        android:textSize="8sp"
+        android:textSize="10sp"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Blvd. Bernardo Quintana Arrioja 37, Loma Dorada, 76060 Santiago de Querétaro, Qro., Mexico"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:layout_marginBottom="8dp"
         />
@@ -129,14 +129,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Destino"
-        android:textSize="8sp"
+        android:textSize="10sp"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="C. Cedro 114, Colonia, Praderas del Sol, 76804 San Juan del Río, Qro., Mexico"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:layout_marginBottom="8dp"
         />

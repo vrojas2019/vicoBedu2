@@ -11,15 +11,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import org.bedu.gr.DetailActivity
-import org.bedu.gr.Fragments.DetailFragment
 import org.bedu.gr.Models.Servicio
 import org.bedu.gr.R
-import org.bedu.gr.UI.LoginActivity
 
 
 class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val tipo:Int) : RecyclerView.Adapter<RecyclerAdapterServicio.ViewHolder>() {
@@ -48,7 +45,6 @@ class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val 
                 replace(R.id.nav_host_fragment,fragment)
                 commit()
             }*/
-
 
             val intent = Intent(c, DetailActivity::class.java)
             intent.putExtra("folio",servicio.folio_servicio.toString())
@@ -95,8 +91,10 @@ class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val 
                         R.id.action_popup_fotos ->{
 
                             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                            gallery.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             val origin = c as Activity
                             startActivityForResult(origin,gallery,1000,null)
+
                             //Toast.makeText(c,"Cargar fotos " + position.folio_servicio,Toast.LENGTH_SHORT).show()
                             true
                         }
@@ -120,11 +118,7 @@ class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val 
                 val menu = popup.get(popupMenus)
                 menu.javaClass.getDeclaredMethod("setForceShowIcon",Boolean::class.java)
                     .invoke(menu,true)
-
-
         }
-
-
         fun bind(servicio: Servicio){
             folio_servicio.text = servicio.folio_servicio.toString()
             asegurado.text = servicio.Asegurado.toString()
@@ -156,12 +150,7 @@ class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val 
                     imgvetapa3.visibility = View.INVISIBLE
                 }
             }
-
-
-
         }
-
-
     }
 
 }

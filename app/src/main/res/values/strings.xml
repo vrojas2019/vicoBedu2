@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name">VICO</string>
 
 
     <!-- NavigationView-->
@@ -22,5 +22,6 @@
 
     <!-- phone cabina-->
     <string name="phone_cabina">5513399898</string>
+    <string name="btn_ingresar">Ingresar</string>
 
 </resources>

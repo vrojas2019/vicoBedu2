@@ -21,8 +21,6 @@ import java.io.IOException
 class ServiciosFragment : Fragment(R.layout.fragment_servicios) {
 
     private lateinit var recycler: RecyclerView
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -67,7 +65,5 @@ class ServiciosFragment : Fragment(R.layout.fragment_servicios) {
             return ""
         }
         return jsonString
-
-
     }
 }
