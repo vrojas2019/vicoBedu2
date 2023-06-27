@@ -7,14 +7,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import org.bedu.gr.Models.Servicio
 import org.bedu.gr.R
 import org.bedu.gr.Adapters.RecyclerAdapterServicio
+import org.bedu.gr.Api.api
+import org.bedu.gr.Models.DatosAPI
+import org.bedu.gr.Models.Record
+import org.bedu.gr.constantes
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.IOException
 
 
@@ -28,18 +33,56 @@ class ServiciosFragment : Fragment(R.layout.fragment_servicios) {
 
         recycler = view.findViewById(R.id.recyclerServicio)
         //recycler = binding.recyclerServicio
-        val jsonFileString = loadJSONFromAsset(view.context)
+
+       //Integramos retrofit
+        val call = api.endpoint.getServicios( constantes.BIN, constantes.API_KEY)
+
+        call.enqueue(object : Callback<DatosAPI?> {
+             override fun onResponse(call: Call<DatosAPI?>, response: Response<DatosAPI?>) {
+
+                 if (response.code() == 200){
+
+                     val body = response.body()
+                     Log.i("responseBody",body?.record?.count().toString())
+                     body?.let {
+                         if (it.record.count()> 0){
+                             var servicios: List<Record> = it.record
+                             val serviciosfiltered = servicios.filter { it.etapa < 3 }.toList()
+                             recycler.adapter = RecyclerAdapterServicio(view.context,serviciosfiltered,1)
+                             recycler.addItemDecoration(DividerItemDecoration(view.context, LinearLayoutManager.VERTICAL))
+
+                         }
+                         else{
+                             Toast.makeText(context, "Ups, no hemos encontrado servicios. " + response.code().toString(), Toast.LENGTH_LONG).show()
+                             Log.i("Info","Ups, no hemos encontrado servicios.")
+                         }
+
+                     }
+                 }
+                 else{
+                     Toast.makeText(context, "Ups, no encontramos el servicio: " + response.code().toString(), Toast.LENGTH_LONG).show()
+                 }
+
+             }
+
+             override fun onFailure(call: Call<DatosAPI?>, t: Throwable) {
+                 Toast.makeText(context, "Ups, encontramos un error. ", Toast.LENGTH_LONG).show()
+                 Log.i("ERROR",t.toString())
+             }
+
+
+         })
+
+
+        /*val jsonFileString = loadJSONFromAsset(view.context)
         Log.i("data", jsonFileString)
-
         val gson = Gson()
-        val listServicios = object : TypeToken<List<Servicio>>() {}.type
-        var servicios: List<Servicio> = gson.fromJson(jsonFileString, listServicios)
+        val listServicios = object : TypeToken<List<Record>>() {}.type
+        var servicios: List<Record> = gson.fromJson(jsonFileString, listServicios)
         val serviciosfiltered = servicios.filter { it.etapa < 3 }.toList()
-
         recycler.adapter = RecyclerAdapterServicio(view.context,serviciosfiltered,1)
-
         recycler.addItemDecoration(DividerItemDecoration(view.context, LinearLayoutManager.VERTICAL))
-
+*/
     }
 
 

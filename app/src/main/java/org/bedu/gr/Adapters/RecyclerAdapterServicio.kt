@@ -1,25 +1,26 @@
 package org.bedu.gr.Adapters
 
 
-import android.app.Activity
+
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.provider.MediaStore
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import org.bedu.gr.CameraActivity
 import org.bedu.gr.DetailActivity
-import org.bedu.gr.Models.Servicio
+import org.bedu.gr.MainActivity
+import org.bedu.gr.Models.Record
 import org.bedu.gr.R
 
 
-class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val tipo:Int) : RecyclerView.Adapter<RecyclerAdapterServicio.ViewHolder>() {
+class RecyclerAdapterServicio(val c: Context, val servicios: List<Record>, val tipo:Int) : RecyclerView.Adapter<RecyclerAdapterServicio.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
        var view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_servicio, parent, false)
@@ -90,10 +91,19 @@ class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val 
                     when(it.itemId){
                         R.id.action_popup_fotos ->{
 
-                            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                            val bundle = Bundle()
+                            bundle.putString("FOLIO",position.folio_servicio.toString())
+                            val intent = Intent(c, CameraActivity::class.java).apply {
+                                putExtras(bundle)
+                            }
+                            startActivity(c,intent,null)
+
+
+
+                            /*val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
                             gallery.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             val origin = c as Activity
-                            startActivityForResult(origin,gallery,1000,null)
+                            startActivityForResult(origin,gallery,1000,null)*/
 
                             //Toast.makeText(c,"Cargar fotos " + position.folio_servicio,Toast.LENGTH_SHORT).show()
                             true
@@ -119,7 +129,7 @@ class RecyclerAdapterServicio(val c: Context,val servicios: List<Servicio>, val 
                 menu.javaClass.getDeclaredMethod("setForceShowIcon",Boolean::class.java)
                     .invoke(menu,true)
         }
-        fun bind(servicio: Servicio){
+        fun bind(servicio: Record){
             folio_servicio.text = servicio.folio_servicio.toString()
             asegurado.text = servicio.Asegurado.toString()
             vehiculo.text = servicio.vehiculo.toString() + " " + servicio.modelo.toString() + " " + servicio.anio.toString()
